@@ -1,6 +1,6 @@
 import { Archetype, Mage } from './Archetypes';
 import Energy from './Energy';
-import Fighter from './Fighter';
+import { Fighter, SimpleFighter } from './Fighter';
 import { Elf, Race } from './Races';
 import getRandomInt from './utils';
 
@@ -57,8 +57,8 @@ export default class Character implements Fighter {
     return this._dexterity;
   }
 
-  attack(enemy: Fighter): number {
-    return enemy.receiveDamage(this.strength);
+  attack(enemy: SimpleFighter): number {
+    return enemy.receiveDamage(this._strength);
   }
 
   levelUp(): void {
