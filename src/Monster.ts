@@ -22,7 +22,7 @@ export default class Mosnter implements SimpleFighter {
       this._lifePoints -= attackPoints;
     }
     if (this._lifePoints < 0) {
-      return -1;
+      this._lifePoints = -1;
     }
     return this._lifePoints;
   }
