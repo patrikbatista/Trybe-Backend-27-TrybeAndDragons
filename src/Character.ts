@@ -57,8 +57,8 @@ export default class Character implements Fighter {
     return this._dexterity;
   }
 
-  attack(enemy: SimpleFighter): number {
-    return enemy.receiveDamage(this._strength);
+  attack(enemy: SimpleFighter | Fighter): void {
+    enemy.receiveDamage(this._strength);
   }
 
   levelUp(): void {
@@ -82,8 +82,8 @@ export default class Character implements Fighter {
     if (attackPoints > 0) {
       this._lifePoints -= attackPoints;
     }
-    if (this._lifePoints < 0) {
-      return -1;
+    if (this._lifePoints <= 0) {
+      this._lifePoints = -1;
     }
     return this._lifePoints;
   }
